@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -16,7 +17,8 @@ function cssLoaders(extra) {
             loader: MiniCssExtractPlugin.loader,
             options: {},
         },
-        'css-loader'
+        'css-loader',
+        'postcss-loader',
     ]
 
     if (extra) {
@@ -80,7 +82,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: cssLoaders()
+                use: cssLoaders('postcss-loader')
             },
             {
                 test: /\.s[ac]ss$/,
