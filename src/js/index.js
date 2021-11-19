@@ -36,7 +36,7 @@ selectionSlider.addEventListener('click', event => {
 
 selectionBtn.addEventListener('click', () => {
     if (!selectionBtn.disabled) {
-        window.location.href = "/polls.html";
+        window.location.href = "/dist/polls.html";
     }
 })
 
