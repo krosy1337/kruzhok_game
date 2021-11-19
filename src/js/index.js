@@ -36,7 +36,7 @@ selectionSlider.addEventListener('click', event => {
 
 selectionBtn.addEventListener('click', () => {
     if (!selectionBtn.disabled) {
-        window.location.href = "/dist/polls.html";
+        window.location.href = "/kruzhok_game/dist/polls.html";
     }
 })
 
