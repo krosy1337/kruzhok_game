@@ -2,6 +2,7 @@
 @import "fonts";
 @import "mixins";
 @import "vars";
+@import "utils";
 
 *,
 *:after,
@@ -301,43 +302,7 @@ body {
 
     row-gap: 12px;
     &-btn {
-      width: 100%;
-      max-width: 500px;
-      height: 43px;
 
-      background-color: #0D42FF;
-
-      border-radius: 2px;
-
-      font-size: 16px;
-      font-weight: 700;
-
-      outline: none;
-      border: none;
-
-      color: var(--text-color);
-
-      cursor: pointer;
-
-      transform: scale(1);
-
-      transition: .2s;
-
-      &:hover:not(:disabled) {
-        box-shadow: 0 0 10px rgba(13, 66, 255, 1);
-      }
-
-      &:disabled {
-        background-color: #3f3f3f;
-
-        color: #858484;
-
-        cursor: not-allowed;
-      }
-
-      &:active {
-        transform: scale(.95);
-      }
     }
     &-text {
       color: #A2A2A2;
@@ -361,8 +326,52 @@ body {
   height: 150px;
 
   background-color: #111;
+
+  color: #ffffff;
+  font-family: ChevinCyrillic, sans-serif;
+  font-size: 14px;
+
+  text-align: center;
+
+  padding: 43px 20px 53px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
+.footer-team, .foter-copyright {
+  font-size: inherit;
+  margin-bottom: 20px;
+}
+.footer-team-inner, .footer-copyright-inner {
+  text-decoration: none;
+  color: #ffffff;
+}
+.blue-text {
+  color: #2C5EF6;
+  font-size: inherit;
+}
+.footer-button {
+  background: none;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-size: inherit;
+  align-items: flex-start;
+}
+.footer-arrow {
+  position: relative;
+  left: 6px;
+  top: 6px;
+}
+@media (max-width: 950px) {
+  .footer {
+    flex-direction: column;
+  }
+}
 @media (max-width: 768px) {
   .header {
     &__container {
@@ -430,48 +439,3 @@ body {
   }
 }
 
-.footer {
-  background-color: #111111;
-  color: #ffffff;
-  font-family: ChevinCyrillic, sans-serif;
-  text-align: center;
-  padding: 43px 20px 53px 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  font-size: 14px;
-
-
-}
-.footer-team, .foter-copyright {
-  font-size: inherit;
-  margin-bottom: 20px;
-}
-.footer-team-inner, .footer-copyright-inner {
-  text-decoration: none;
-  color: #ffffff;
-}
-.blue-text {
-  color: #2C5EF6;
-  font-size: inherit;
-}
-.footer-button {
-  background: none;
-  color: #ffffff;
-  border: none;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  font-size: inherit;
-  align-items: flex-start;
-}
-.footer-arrow {
-  position: relative;
-  left: 6px;
-  top: 6px;
-}
-@media (max-width: 950px) {
-  .footer {
-    flex-direction: column;
-  }
-}

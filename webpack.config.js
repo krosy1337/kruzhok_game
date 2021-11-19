@@ -5,7 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const autoprefixer = require('autoprefixer')
 
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -48,7 +47,10 @@ function optimization() {
 module.exports = {
     context: path.resolve(__dirname, "src"),
     mode: "development",
-    entry: ["@babel/polyfill", "./js/index.js"],
+    entry: {
+        index: ["@babel/polyfill", "./js/index.js"],
+        polls: ["@babel/polyfill", "./js/polls.js"],
+    },
     output: {
         filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, 'dist'),
@@ -60,10 +62,20 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
+            filename: "index.html",
             template: "./index.html",
             minify: {
                 collapseWhitespace: isProd,
             },
+            chunks: ['index'],
+        }),
+        new HTMLWebpackPlugin({
+            filename: "polls.html",
+            template: "./polls.html",
+            minify: {
+                collapseWhitespace: isProd,
+            },
+            chunks: ['polls'],
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
